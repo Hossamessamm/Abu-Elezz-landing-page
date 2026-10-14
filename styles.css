@@ -169,13 +169,13 @@ main {
 }
 
 .hero-grid {
-  width: min(82rem, calc(100% - 2 * var(--gutter)));
+  width: min(80rem, calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.78fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  align-items: end;
-  padding-top: clamp(2.4rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+  padding-top: clamp(2rem, 5vw, 3.5rem);
 }
 
 .hero-copy {
@@ -280,31 +280,50 @@ h1 {
 }
 
 .hero-photo {
-  margin: 0;
+  position: relative;
+  width: clamp(18rem, 42vw, 36rem);
+  aspect-ratio: 1;
+  margin: 0.6rem auto;
+  padding: 0.7rem;
+  border-radius: 50%;
   background: var(--paper);
-  color: var(--ink);
-  padding: 0.7rem 0.7rem 0.85rem;
-  box-shadow: 0.8rem 0.8rem 0 var(--oxblood-deep);
-  transform: translateY(2.4rem);
+  box-shadow:
+    0 0 0 0.45rem oklch(0.48 0.1 32),
+    0 0 0 0.7rem var(--paper),
+    0 0 0 0.95rem oklch(0.62 0.07 45);
+  justify-self: center;
 }
 
 .hero-photo img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 16%;
 }
 
-.hero-photo figcaption {
-  font-family: var(--display);
-  font-size: 0.86rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  padding-top: 0.65rem;
+.orbit {
+  position: absolute;
+  inset: -1.35rem;
+  border-radius: 50%;
+  border: 2px solid oklch(0.9 0.02 85);
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  pointer-events: none;
+}
+
+.orbit::after {
+  content: "";
+  position: absolute;
+  inset: -0.7rem;
+  border-radius: 50%;
+  border: 1px solid oklch(0.78 0.04 70);
+  border-right-color: transparent;
+  border-top-color: transparent;
 }
 
 .year {
-  padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(3rem, 6vw, 5rem);
+  padding: clamp(3.2rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem);
 }
 
 .year-track {
@@ -799,6 +818,10 @@ fieldset {
   .hero-copy .lede { animation-delay: 0.06s; }
   .hero-copy .arabic { animation-delay: 0.12s; }
   .hero-copy .actions { animation-delay: 0.18s; }
+
+  .orbit {
+    animation: turn 28s linear infinite;
+  }
 }
 
 @keyframes rise {
@@ -810,6 +833,10 @@ fieldset {
     opacity: 1;
     transform: none;
   }
+}
+
+@keyframes turn {
+  to { transform: rotate(360deg); }
 }
 
 @media (max-width: 960px) {
@@ -825,10 +852,13 @@ fieldset {
   }
 
   .hero-photo {
-    transform: none;
-    max-width: 26rem;
-    box-shadow: 0.55rem 0.55rem 0 var(--oxblood-deep);
-    margin-bottom: 2rem;
+    width: min(18rem, 78%);
+    order: -1;
+    margin: 0 auto 1.25rem;
+  }
+
+  .orbit {
+    inset: -0.85rem;
   }
 
   .resume {

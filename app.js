@@ -646,7 +646,7 @@ function selectedPart() {
 function buildMessage(data) {
   const lines = [
     "CMA enrollment request",
-    "Dr. Ahmed Abu El-Ezz",
+    "Ahmed Abu El-Ezz",
     "",
     `Name: ${data.name}`,
     `Phone: ${data.phone}`,
@@ -709,7 +709,7 @@ function openDelivery(message) {
     window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
     return "Your email app should open with this request. If it does not, copy the text and send it yourself.";
   }
-  return "Copy the request and send it to Dr. Abu El-Ezz by WhatsApp or email.";
+  return "Copy the request and send it to Abu El-Ezz by WhatsApp or email.";
 }
 
 function bindForm() {
