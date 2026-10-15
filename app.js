@@ -5,8 +5,8 @@
  * Leave both empty and the page copies a request the student can paste.
  */
 const CONTACT = {
-  email: "",
-  whatsapp: "",
+  email: "AhmedRaafat5@gmail.com",
+  whatsapp: "201001434321",
 };
 
 const WEEK = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

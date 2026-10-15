@@ -787,23 +787,148 @@ fieldset {
   min-height: 11rem;
 }
 
+.courses {
+  padding: 0 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.course-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) auto;
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  align-items: end;
+  background: var(--oxblood);
+  color: var(--on-ox);
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.course-card h2 {
+  margin-bottom: 0.8rem;
+}
+
+.course-card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.course-card li {
+  color: oklch(0.92 0.015 80);
+}
+
+.course-offer {
+  display: grid;
+  justify-items: end;
+  gap: 0.9rem;
+}
+
+.course-price {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+.course-price span {
+  font-family: var(--arabic);
+  font-size: 0.42em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .footer {
-  padding: 1.3rem 0 1.8rem;
+  padding: 1.6rem 0 2rem;
   border-top: 1px solid var(--line);
 }
 
-.footer-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: baseline;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr auto;
+  gap: 1.25rem 2rem;
+  align-items: start;
   font-family: var(--display);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 600;
+}
+
+.footer-name {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+
+.footer-contact,
+.footer-policies {
+  display: grid;
+  gap: 0.35rem;
 }
 
 .footer a {
   text-underline-offset: 0.18em;
+}
+
+.footer-policies a {
+  font-family: var(--arabic);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.policy-page {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 4rem;
+}
+
+.policy-page h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  max-width: 16ch;
+  margin-bottom: 0.6rem;
+}
+
+.policy-page .dates {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 1.4rem;
+}
+
+.policy-page h2 {
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  margin: 1.8rem 0 0.55rem;
+}
+
+.policy-page p,
+.policy-page li {
+  max-width: 68ch;
+  color: var(--ink-soft);
+}
+
+.policy-page ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.policy-page .ar {
+  font-family: var(--arabic);
+  font-size: 1.2rem;
+  line-height: 1.9;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.policy-page .ar ul {
+  padding-left: 0;
+  padding-right: 1.15rem;
+}
+
+.policy-page .ar h1,
+.policy-page .ar h2,
+.policy-page .ar p,
+.policy-page .ar li {
+  color: var(--ink);
 }
 
 .noscript {
@@ -842,6 +967,7 @@ fieldset {
 @media (max-width: 960px) {
   .hero-grid,
   .year-track,
+  .course-card,
   .maps,
   .method-grid,
   .enroll-grid,
@@ -855,6 +981,10 @@ fieldset {
     width: min(18rem, 78%);
     order: -1;
     margin: 0 auto 1.25rem;
+  }
+
+  .course-offer {
+    justify-items: start;
   }
 
   .orbit {
@@ -909,8 +1039,8 @@ fieldset {
     text-align: left;
   }
 
-  .footer-row {
-    flex-direction: column;
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }
 
